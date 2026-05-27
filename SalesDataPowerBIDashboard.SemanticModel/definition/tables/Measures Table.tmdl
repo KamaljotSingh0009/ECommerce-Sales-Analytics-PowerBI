@@ -1,0 +1,29 @@
+table 'Measures Table'
+	lineageTag: 62faf1f3-df35-4d12-af25-6f5d5887b6b5
+
+	measure 'Sum of Net Sales' = CALCULATE(SUM('Fact Table'[Net Sale]),ALL(DateTable1),USERELATIONSHIP(DateTable2[Date],'Fact Table'[Date (dd/mm/yyyy)]))
+		lineageTag: 289d4b7c-de73-4b35-a790-1536c934d115
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Profit' = CALCULATE(SUM('Fact Table'[Profit]),ALL(DateTable1),USERELATIONSHIP(DateTable2[Date],'Fact Table'[Date (dd/mm/yyyy)]))
+		lineageTag: a3cfeab5-fcb1-4fb9-a94d-288103e5ed1c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unit Sold' = CALCULATE(SUM('Fact Table'[Units Sold]),ALL(DateTable1[Date]),USERELATIONSHIP(DateTable2[Date],'Fact Table'[Date (dd/mm/yyyy)]))
+		formatString: 0
+		lineageTag: 1736d281-b6e8-46ca-96a2-0d64e1f9e189
+
+	partition 'Measures Table' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

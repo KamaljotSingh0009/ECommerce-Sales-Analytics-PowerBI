@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "SalesDataPowerBIDashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2cb53b34-d3af-450e-ba04-d08e72b39cf9"
+  }
+}

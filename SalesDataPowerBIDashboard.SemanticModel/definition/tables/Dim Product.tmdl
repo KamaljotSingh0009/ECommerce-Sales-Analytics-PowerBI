@@ -1,0 +1,49 @@
+table 'Dim Product'
+	lineageTag: 54f0f316-8732-470a-969d-83852e8ec501
+
+	column ProductID
+		dataType: string
+		lineageTag: d0510ea1-c6f4-4d66-bccb-ebd3972a577c
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: fafa79a3-a701-4b62-909b-bad12c18776b
+		summarizeBy: none
+		sourceColumn: Product Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Line'
+		dataType: string
+		lineageTag: 77d4922a-ea1c-4884-8d9d-5882be303136
+		summarizeBy: none
+		sourceColumn: Product Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price (INR)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 965df17a-04ed-4e18-9f5d-35ba7260c0e2
+		summarizeBy: none
+		sourceColumn: Price (INR)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Product' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Dell\Downloads\Udemy - Complete Data Analyst Bootcamp From Basics To Advanced 2024-10\23 - Power BI Project 1, Sales Data Analysis\2 -Store Data.xlsx"), null, true),
+				    #"Dim Product_Sheet" = Source{[Item="Dim Product",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Dim Product_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ProductID", type text}, {"Product Name", type text}, {"Product Line", type text}, {"Price (INR)", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

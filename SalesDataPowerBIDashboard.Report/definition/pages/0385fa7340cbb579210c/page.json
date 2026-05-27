@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "0385fa7340cbb579210c",
+  "displayName": "EditInerations",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "b7a5d5d3ad4b4c88956a",
+      "target": "8403047a22dee22c20e8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b7a5d5d3ad4b4c88956a",
+      "target": "dcd9cf10b7ade834b434",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b7a5d5d3ad4b4c88956a",
+      "target": "01f42b551970a970e3b6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2e51df26f4c600c1a9ec",
+      "target": "e46de720e9e84abbf8aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2e51df26f4c600c1a9ec",
+      "target": "592f0c9eee1912e429da",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2e51df26f4c600c1a9ec",
+      "target": "047b67c0743f44f97b9c",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "750e294ced1f465401ad",
+  "displayName": "Table Visual",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b77e510af7066436c310",
+  "displayName": "Top/Bottom  5 Analysis",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}
